@@ -1,0 +1,46 @@
+.wrapper {
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.error {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #acacac;
+    gap: 1rem;
+}
+
+.voltar {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    border-radius: 0.4rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s;
+    background: #303030;
+    color: #acacac;
+    text-decoration: none;
+}
+
+.voltar:hover,
+.voltar:focus {
+    background: #373737;
+    color: #f2f2f2;
+    box-shadow: 0 0 0 2px #272727, 0 0 0 4px #212121;
+}
+
+.carregando {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #acacac;
+    gap: 1rem;
+}
