@@ -11,7 +11,6 @@ function Video() {
   const [video, setVideo] = React.useState(null);
   const [laoding, setLaoding] = React.useState(false);
   const [videoDefault, setVideoDefault] = React.useState(null);
-  const [counter, setCounter] = React.useState(1);
   const [buttonProximo, setButtonProximo] = React.useState(false);
 
   const baseUrl = `https://www.googleapis.com/youtube/v3/playlistItems?key=${process.env.REACT_APP_API_KEY}&part=snippet`;
@@ -56,7 +55,6 @@ function Video() {
   const nextPage = async () => {
     setPage(page + 1);
     await getDataByPage(data.nextPageToken);
-    setCounter(1);
     setButtonProximo(false);
   };
 
@@ -88,19 +86,20 @@ function Video() {
       {laoding && <p className={styles.carregando}>Carregando</p>}
       {data && (
         <div className={styles.wrapper}>
-          <VideoContent video={video ? video : videoDefault} />
-          <MenuVideo
-            data={data}
-            page={page}
-            video={video}
-            nextPage={nextPage}
-            prevPage={prevPage}
-            setVideo={setVideo}
-            maxResults={maxResults}
-            setCounter={setCounter}
-            buttonProximo={buttonProximo}
-            setButtonProximo={setButtonProximo}
-          />
+          <div className={styles.container}>
+            <VideoContent video={video ? video : videoDefault} />
+            <MenuVideo
+              data={data}
+              page={page}
+              video={video}
+              nextPage={nextPage}
+              prevPage={prevPage}
+              setVideo={setVideo}
+              maxResults={maxResults}
+              buttonProximo={buttonProximo}
+              setButtonProximo={setButtonProximo}
+            />
+          </div>
         </div>
       )}
       {!data && !laoding && (

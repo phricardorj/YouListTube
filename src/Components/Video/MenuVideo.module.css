@@ -30,6 +30,9 @@
  
  .btnGroup {
      display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     width: 100%;
      gap: 0.5rem;
  }
 
@@ -47,14 +50,7 @@ button:disabled {
     pointer-events: none;
 }
 
-@media (max-width: 40rem) {
-    .video {
-        width: 470px;
-        height: 274px;
-    }    
-}
-
 .page {
-    margin-top: 2rem;
+    margin-top: 1rem;
     color: #acacac;
 }

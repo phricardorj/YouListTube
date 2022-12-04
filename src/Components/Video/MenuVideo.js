@@ -8,7 +8,6 @@ function MenuVideo({
   prevPage,
   setVideo,
   video,
-  setCounter,
   setButtonProximo,
   buttonProximo,
   maxResults,
@@ -80,7 +79,6 @@ function MenuVideo({
                 src: `https://www.youtube.com/embed/${item.snippet.resourceId.videoId}`,
                 details: item.snippet,
               });
-              setCounter(index + 1);
             }}
           >
             {item.snippet.title}
