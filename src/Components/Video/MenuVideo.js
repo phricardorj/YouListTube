@@ -11,6 +11,7 @@ function MenuVideo({
   setCounter,
   setButtonProximo,
   buttonProximo,
+  maxResults,
 }) {
   const [nextVideo, setNextVideo] = React.useState({
     index: 1,
@@ -56,25 +57,11 @@ function MenuVideo({
     const lastPage = Math.ceil(
       data.pageInfo.totalResults / data.pageInfo.resultsPerPage
     );
-
-    if (page != lastPage && video.index + 1 !== data.items.length) {
-      setVideo(nextVideo);
-      setButtonProximo(false);
-    } else if (page === lastPage && video.index + 1 !== data.items.length) {
-      setVideo(nextVideo);
-      setButtonProximo(true);
-    } else if (page === 1 && video.index + 1 === data.items.length) {
-      setButtonProximo(false);
-      nextPage(data.nextPageToken);
-    } else {
-      setVideo(nextVideo);
-      setButtonProximo(true);
-    }
   };
 
   return (
     <>
-      {nextVideo && (
+      {/* {nextVideo && (
         <button
           className={styles.btnProximoVideo}
           onClick={handleNextVideoBtn}
@@ -82,7 +69,7 @@ function MenuVideo({
         >
           Próximo Vídeo
         </button>
-      )}
+      )} */}
       <ul className={styles.ul}>
         {data.items.map((item, index) => (
           <li

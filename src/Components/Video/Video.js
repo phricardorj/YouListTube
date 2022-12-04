@@ -15,7 +15,7 @@ function Video() {
   const [buttonProximo, setButtonProximo] = React.useState(false);
 
   const baseUrl = `https://www.googleapis.com/youtube/v3/playlistItems?key=${process.env.REACT_APP_API_KEY}&part=snippet`;
-  const maxResults = 50;
+  const maxResults = 10;
 
   React.useEffect(() => {
     const getJson = async (url) => {
@@ -79,7 +79,7 @@ function Video() {
             nextPage={nextPage}
             prevPage={prevPage}
             setVideo={setVideo}
-            counter={counter}
+            maxResults={maxResults}
             setCounter={setCounter}
             buttonProximo={buttonProximo}
             setButtonProximo={setButtonProximo}

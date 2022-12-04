@@ -55,5 +55,6 @@ button:disabled {
 }
 
 .page {
-  color: #acacac;
+    margin-top: 2rem;
+    color: #acacac;
 }
