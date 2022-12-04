@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Home.module.css";
+import logo from "../Assets/youlisttube.png";
 
 const Home = () => {
   const [value, setValue] = React.useState("");
@@ -18,21 +19,26 @@ const Home = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1>YouListTube - Playlist Youtube Player</h1>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <label htmlFor="playlist">Digite o código da playlist:</label>
-        <input
-          type="text"
-          name="playlist"
-          id="playlist"
-          ref={input}
-          placeholder="PLcirGkCPmbmEgDAsRiu9WyOGCAVEWPwhs"
-          value={value}
-          onChange={({ target }) => setValue(target.value)}
-        />
-        <button>Reproduzir Playlist</button>
-      </form>
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <div className={styles.header}>
+          <img src={logo} alt="Logo YouListTube" />
+          <p>Playlist Youtube Player by @phricardorj</p>
+        </div>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <label htmlFor="playlist">Digite o código da playlist:</label>
+          <input
+            type="text"
+            name="playlist"
+            id="playlist"
+            ref={input}
+            placeholder="PLcirGkCPmbmEgDAsRiu9WyOGCAVEWPwhs"
+            value={value}
+            onChange={({ target }) => setValue(target.value)}
+          />
+          <button>Reproduzir Playlist</button>
+        </form>
+      </div>
     </div>
   );
 };
