@@ -68,6 +68,23 @@ function Video() {
 
   return (
     <>
+      <div className={styles.headerMenu}>
+        <Link to="/" className={styles.voltar}>
+          Voltar
+        </Link>
+        <p>
+          Gostou? Deixe uma ⭐ no{" "}
+          <a
+            href="https://github.com/phricardorj/YouListTube"
+            target="_blank"
+            rel="noopener"
+            className={styles.repositorio}
+          >
+            repositório
+          </a>
+          !
+        </p>
+      </div>
       {laoding && <p className={styles.carregando}>Carregando</p>}
       {data && (
         <div className={styles.wrapper}>
