@@ -3,6 +3,7 @@ import MenuVideo from "./MenuVideo";
 import VideoContent from "./VideoContent";
 import styles from "./Video.module.css";
 import { useParams, Link } from "react-router-dom";
+import Loading from "../Helper/Loading";
 
 function Video() {
   const { playlistId } = useParams();
@@ -83,7 +84,7 @@ function Video() {
           !
         </p>
       </div>
-      {laoding && <p className={styles.carregando}>Carregando</p>}
+      {laoding && <Loading />}
       {data && (
         <div className={styles.wrapper}>
           <div className={styles.container}>
