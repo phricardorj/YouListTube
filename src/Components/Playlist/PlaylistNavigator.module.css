@@ -39,6 +39,7 @@
  .btnGroup > button {
     margin-top: 1.2rem;
     margin-bottom: 1rem;
+    width: 100%;
 }
 
 .btnProximoVideo {
@@ -51,6 +52,6 @@ button:disabled {
 }
 
 .page {
-    margin-top: 1rem;
     color: #acacac;
+    text-align: center;
 }
