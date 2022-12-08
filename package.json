@@ -1,6 +1,13 @@
 {
-  "name": "youtube",
-  "version": "0.1.0",
+  "name": "youlisttube",
+  "description": "Uma nova experiência ao assistir as Listas de Reprodução (Playlist) do Youtube.",
+  "author": "@phricardorj",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": { 
+  "type": "git", 
+  "url": "https://github.com/phricardorj/YouListTube" 
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
