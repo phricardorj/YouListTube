@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import Home from "./Components/Home/Home";
-import Video from "./Components/Video/Video";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Playlist from "./Components/Playlist/Playlist";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
@@ -10,7 +10,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="playlist/:playlistId" element={<Video />} />
+          <Route path="playlist/:playlistId" element={<Playlist />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
     </div>

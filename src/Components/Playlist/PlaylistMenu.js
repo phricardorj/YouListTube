@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./MenuVideo.module.css";
+import styles from "./PlaylistMenu.module.css";
 
-function MenuVideo({
+function PlaylistMenu({
   data,
   page,
   nextPage,
@@ -99,4 +99,4 @@ function MenuVideo({
   );
 }
 
-export default MenuVideo;
+export default PlaylistMenu;

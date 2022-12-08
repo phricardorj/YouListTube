@@ -1,76 +1,13 @@
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.container {
+.video {
+    border-radius: 1rem;
+    margin: 1.2rem 0 0.5rem;
+    aspect-ratio: 16 / 9;
     width: 100%;
-    max-width: 40rem;
-    padding: 1rem;
-    margin: 1rem 0;
-    background: #121212;
-    border-radius: 0.4rem;
 }
 
-.error {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #acacac;
-    gap: 1rem;
-}
-
-.voltar {
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    border-radius: 0.4rem;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: 0.2s;
-    background: #303030;
-    color: #acacac;
-    text-decoration: none;
-}
-
-.voltar:hover,
-.voltar:focus {
-    background: #373737;
+.title {
+    font-size: 1.3rem;
+    text-align: center;
     color: #f2f2f2;
-    box-shadow: 0 0 0 2px #272727, 0 0 0 4px #212121;
-}
-
-.carregando {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #acacac;
-    gap: 1rem;
-}
-
-.headerMenu {
-    display: block;
-    width: 100%;
-    height: auto;
-    background: #121212;
-    box-shadow: 0 0 0 1px #212121;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    color: #acacac;
-    padding: 1rem;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.repositorio {
-    text-decoration: none;
-    color: #acacac;
-    text-decoration: underline;
 }
 
