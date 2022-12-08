@@ -69,7 +69,7 @@ function Video() {
     <>
       <div className={styles.headerMenu}>
         <Link to="/" className={styles.voltar}>
-          Voltar
+          Página Inicial
         </Link>
         <p>
           Gostou? Deixe uma ⭐ no{" "}

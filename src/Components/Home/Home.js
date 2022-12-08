@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Home.module.css";
-import logo from "../Assets/youlisttube.png";
+import logo from "../../Assets/youlisttube.png";
+import infoCode from "../../Assets/infoCode.png";
 
 const Home = () => {
   const [value, setValue] = React.useState("");
@@ -36,7 +37,11 @@ const Home = () => {
             value={value}
             onChange={({ target }) => setValue(target.value)}
           />
-          <button>Reproduzir Playlist</button>
+          <button>▶️ Reproduzir Playlist</button>
+          <img
+            src={infoCode}
+            alt="Imagem com informação de como achar o código da Playlist"
+          />
         </form>
       </div>
     </div>
