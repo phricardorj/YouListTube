@@ -1,15 +1,16 @@
 .wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
     height: 100vh;
-    width: 100vw;
 }
 
 .container {
    width: 100%;
    max-width: 40rem;
-   padding: 2rem;
+   padding: 1.2rem;
+   background: #121212;
+   border-radius: 0.8rem;
+   font-size: 1rem;
 }
 
 .container > h1 {
@@ -46,7 +47,7 @@
     flex-direction: column;
     gap: 0.5rem;
     margin-bottom: 2rem;
-    background: #121212;
+    background: #212121;
     padding: 2rem;
     border-radius: 0.8rem;
     width: 100%;
@@ -59,5 +60,5 @@
 
 .header > p {
     font-size: 1rem;
-    color: #ff0000;
+    color: #f2f2f2;
 }

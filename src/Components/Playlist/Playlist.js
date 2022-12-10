@@ -5,6 +5,7 @@ import { useParams, Link } from "react-router-dom";
 import Loading from "../Helper/Loading";
 import styles from "./Playlist.module.css";
 import PlaylistNotFound from "./PlaylistNotFound";
+import Footer from "../Footer/Footer";
 
 function Playlist() {
   const { playlistId } = useParams();
@@ -39,7 +40,7 @@ function Playlist() {
   return (
     <>
       <div className={styles.headerMenu}>
-        <Link to="/" className={styles.voltar}>
+        <Link to="/" className="btn-default">
           Página Inicial
         </Link>
         <p>
@@ -53,27 +54,32 @@ function Playlist() {
           </a>
         </p>
       </div>
-      {loading && <Loading />}
-      {data && !loading && (
-        <div className={styles.wrapper}>
-          <div className={styles.container}>
-            <Video video={video} />
-          </div>
-          <div className={styles.container}>
-            <PlaylistNavigator
-              data={data}
-              page={page}
-              playlistId={playlistId}
-              baseUrl={baseUrl}
-              maxResults={maxResults}
-              setPage={setPage}
-              setVideo={setVideo}
-              setData={setData}
-            />
-          </div>
-        </div>
-      )}
+
+      <div className={styles.wrapper}>
+        {loading && <div className={styles.skeleton}></div>}
+        {data && !loading && (
+          <>
+            <div className={styles.container}>
+              <Video video={video} />
+            </div>
+            <div className={styles.container}>
+              <PlaylistNavigator
+                data={data}
+                page={page}
+                playlistId={playlistId}
+                baseUrl={baseUrl}
+                maxResults={maxResults}
+                setPage={setPage}
+                setVideo={setVideo}
+                setData={setData}
+              />
+            </div>
+          </>
+        )}
+      </div>
+
       {!data && !loading && <PlaylistNotFound />}
+      <Footer />
     </>
   );
 }

@@ -12,27 +12,13 @@ body {
     background: #181818;
 }
 
- button {
-    padding: 1rem 2rem;
-    font-size: 1rem;
-    border-radius: 0.4rem;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    transition: 0.2s;
-    background: #303030;
-    color: #acacac;
-}
-
-button:hover,
-button:focus {
-    background: #373737;
-    color: #f2f2f2;
-    box-shadow: 0 0 0 2px #272727, 0 0 0 4px #212121;
-}
-
 a {
-    padding: 0.8rem 1rem;
+    color: #acacac;
+    text-decoration: underline;
+}
+
+.btn-default {
+    padding: 1rem 1.5rem;
     font-size: 1rem;
     border-radius: 0.4rem;
     border: none;
@@ -44,9 +30,10 @@ a {
     text-decoration: none;
 }
 
-a:hover,
-a:focus {
+.btn-default:hover,
+.btn-default:focus {
     background: #373737;
     color: #f2f2f2;
     box-shadow: 0 0 0 2px #272727, 0 0 0 4px #212121;
 }
+

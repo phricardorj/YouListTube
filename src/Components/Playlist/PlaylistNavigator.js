@@ -60,9 +60,15 @@ function PlaylistNavigator({
       )}
 
       <div className={styles.btnGroup}>
-        {page > 1 && <button onClick={prevPage}>Voltar Página</button>}
+        {page > 1 && (
+          <button className="btn-default" onClick={prevPage}>
+            Voltar Página
+          </button>
+        )}
         {page < data.pageInfo.totalResults / data.pageInfo.resultsPerPage && (
-          <button onClick={nextPage}>Próxima Página</button>
+          <button className="btn-default" onClick={nextPage}>
+            Próxima Página
+          </button>
         )}
       </div>
       <p className={styles.page}>

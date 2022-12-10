@@ -1,0 +1,18 @@
+.footer {
+    width: 100%;
+    margin-top: 2rem;
+    background: #121212;
+    color: #acacac;
+    text-align: center;
+    padding: 2rem;
+}
+
+.logo {
+    height: 100px;
+    width: auto;
+}
+
+.text {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}

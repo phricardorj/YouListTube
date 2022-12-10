@@ -47,3 +47,28 @@
     text-decoration: underline;
 }
 
+.skeleton {
+  display: block;
+  width: 40rem;
+  height: 100vh;
+  background: #121212;
+  border-radius: 0.4rem;
+
+  background: linear-gradient(       
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(79, 79, 79, 0.2) 50%,
+    rgba(56, 55, 55, 0) 80%
+  ),
+  #121212;
+  background-repeat: repeat-y;        
+  background-size: 100px 400px;       
+  background-position: 0 0;  
+  animation: shine 2s infinite linear;
+}
+
+@keyframes shine {	
+    to {
+      background-position: 100% 0, /* move highlight to right */ 0 0;
+    }
+  }
