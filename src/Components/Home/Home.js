@@ -8,13 +8,14 @@ import logo from "../../Assets/youlisttube.png";
 
 const Home = () => {
   const [value, setValue] = React.useState("");
+  const [error, setError] = React.useState(null);
   const input = React.useRef(null);
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (value == "") {
-      alert("Informe o código da playlist!");
+      setError("⚠️ Informe o código da playlist!");
       input.current.focus();
       return null;
     }
@@ -41,6 +42,7 @@ const Home = () => {
               value={value}
               onChange={({ target }) => setValue(target.value)}
             />
+            {error && <p>{error}</p>}
             <button className="btn-default">▶️ Reproduzir Playlist</button>
             <img
               src={infoCode}
