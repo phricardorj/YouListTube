@@ -1,9 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Home.module.css";
-import logo from "../../Assets/youlisttube.png";
 import infoCode from "../../Assets/infoCode.png";
 import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
+import logo from "../../Assets/youlisttube.png";
 
 const Home = () => {
   const [value, setValue] = React.useState("");
@@ -21,7 +22,8 @@ const Home = () => {
   };
 
   return (
-    <>
+    <div>
+      <Header />
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.header}>
@@ -48,7 +50,7 @@ const Home = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
