@@ -16,24 +16,6 @@ a {
     text-decoration: underline;
 }
 
-
-
-.theme-light {
-    --theme-color: #811b07;
-    --theme-color-2: #d83b1b;
-    --theme-primary: #c22708;
-    --theme-background: #f1aa9b;
-    --theme-text-color: #ffc0b4;
-}
-
-.theme-dark {
-    --theme-color: #181818;
-    --theme-color-2: #161616;
-    --theme-primary: #121212;
-    --theme-background: #212121;
-    --theme-text-color: #f2f2f2;
-}
-
 .btn-default {
     padding: 1rem 1.5rem;
     font-size: 1rem;
@@ -42,14 +24,28 @@ a {
     outline: none;
     cursor: pointer;
     transition: 0.2s;
-    background: var(--theme-background);
-    color: var(--theme-text-color);
+    background:  #c80303;
+    color: #f2f2f2;
     text-decoration: none;
 }
 
 .btn-default:hover,
 .btn-default:focus {
-    background: var(--theme-background);
+    background: #c92605;
     color: #f2f2f2;
-    box-shadow: 0 0 0 2px var(--theme-primary), 0 0 0 4px var(--theme-color-2);
 }
+
+.theme-light {
+    --theme-color: #811b07;
+    --theme-primary: #ffae9e;
+    --theme-background: #e8e8e8;
+    --theme-text-color: #000000;
+}
+
+.theme-dark {
+    --theme-color: #181818;
+    --theme-primary: #121212;
+    --theme-background: #212121;
+    --theme-text-color: #f2f2f2;
+}
+
