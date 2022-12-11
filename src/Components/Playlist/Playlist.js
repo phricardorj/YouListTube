@@ -1,11 +1,11 @@
 import React from "react";
 import PlaylistNavigator from "./PlaylistNavigator";
 import Video from "../Video/Video";
-import { useParams, Link } from "react-router-dom";
-import Loading from "../Helper/Loading";
+import { useParams } from "react-router-dom";
 import styles from "./Playlist.module.css";
 import PlaylistNotFound from "./PlaylistNotFound";
 import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
 
 function Playlist() {
   const { playlistId } = useParams();
@@ -39,22 +39,7 @@ function Playlist() {
 
   return (
     <>
-      <div className={styles.headerMenu}>
-        <Link to="/" className="btn-default">
-          Página Inicial
-        </Link>
-        <p>
-          Gostou? Deixe uma ⭐ no{" "}
-          <a
-            href="https://github.com/phricardorj/YouListTube"
-            target="_blank"
-            rel="noopener"
-          >
-            repositório
-          </a>
-        </p>
-      </div>
-
+      <Header />
       <div className={styles.wrapper}>
         {loading && <div className={styles.skeleton}></div>}
         {data && !loading && (

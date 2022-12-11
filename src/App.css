@@ -9,7 +9,6 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: #181818;
 }
 
 a {
@@ -25,15 +24,28 @@ a {
     outline: none;
     cursor: pointer;
     transition: 0.2s;
-    background: #303030;
-    color: #acacac;
+    background:  #c80303;
+    color: #f2f2f2;
     text-decoration: none;
 }
 
 .btn-default:hover,
 .btn-default:focus {
-    background: #373737;
+    background: #c92605;
     color: #f2f2f2;
-    box-shadow: 0 0 0 2px #272727, 0 0 0 4px #212121;
+}
+
+.theme-light {
+    --theme-color: #811b07;
+    --theme-primary: #ffae9e;
+    --theme-background: #e8e8e8;
+    --theme-text-color: #000000;
+}
+
+.theme-dark {
+    --theme-color: #181818;
+    --theme-primary: #121212;
+    --theme-background: #212121;
+    --theme-text-color: #f2f2f2;
 }
 

@@ -3,16 +3,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 1rem;
     gap: 1rem;
     padding: 1rem;
+    background: var(--theme-background);
 }
 
 .container {
     width: 100%;
     max-width: 40rem;
     padding: 1rem;
-    background: #121212;
+    background: var(--theme-color);
     border-radius: 0.4rem;
 }
 
@@ -30,7 +30,7 @@
     display: block;
     width: 100%;
     height: auto;
-    background: #121212;
+    background: var(--theme-color);
     box-shadow: 0 0 0 1px #212121;
     display: flex;
     align-items: center;
@@ -51,7 +51,7 @@
   display: block;
   width: 40rem;
   height: 100vh;
-  background: #121212;
+  background: var(--theme-color);
   border-radius: 0.4rem;
 
   background: linear-gradient(       
@@ -60,7 +60,7 @@
     rgba(79, 79, 79, 0.2) 50%,
     rgba(56, 55, 55, 0) 80%
   ),
-  #121212;
+  var(--theme-color);
   background-repeat: repeat-y;        
   background-size: 100px 400px;       
   background-position: 0 0;  
