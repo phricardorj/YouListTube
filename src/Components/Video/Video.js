@@ -11,11 +11,12 @@ const Video = ({ video, playlistId }) => {
 
   React.useEffect(() => {
     const watched = localStorage.getItem("watched");
-    if (watched) {
-      const obj = JSON.parse(watched);
-      const checked = obj.id.includes(video.id);
-      setCheck(checked);
-    }
+    if (watched) setVideos(JSON.parse(watched));
+  }, []);
+
+  React.useEffect(() => {
+    const checked = videos.id.includes(video.id);
+    setCheck(checked);
   }, [video]);
 
   const handleVideoCheck = () => {
@@ -25,7 +26,7 @@ const Video = ({ video, playlistId }) => {
       setVideos(videos);
       localStorage.setItem("watched", JSON.stringify(videos));
     } else {
-      videos.id.pop();
+      videos.id = videos.id.filter((el) => el != video.id);
       setVideos(videos);
       localStorage.setItem("watched", JSON.stringify(videos));
     }
@@ -37,16 +38,14 @@ const Video = ({ video, playlistId }) => {
       <h1 className={styles.title}>{video.details.title}</h1>
       <iframe
         className={styles.video}
-        src={`${video.src}?autoplay=1&enablejsapi=1&showinfo=0&controls=1`}
+        src={`${video.src}?autoplay=1&controls=1&rel=0`}
         title={video.details.title}
-        frameBorder="0"
-        allow="autoplay"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
       ></iframe>
       <SwitchButton
         label="Marcar como já visto:"
-        onChange={() => {
-          handleVideoCheck();
-        }}
+        onChange={() => handleVideoCheck()}
         checked={check}
       />
     </>
