@@ -44,7 +44,7 @@ function Playlist() {
         {data && !loading && (
           <>
             <div className={styles.container}>
-              <Video video={video} />
+              <Video video={video} playlistId={playlistId} />
             </div>
             <div className={styles.container}>
               <PlaylistNavigator

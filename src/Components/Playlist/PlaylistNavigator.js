@@ -47,7 +47,7 @@ function PlaylistNavigator({
               key={item.id}
               onClick={() => {
                 setVideo({
-                  index: index,
+                  id: item.snippet.resourceId.videoId,
                   src: `https://www.youtube.com/embed/${item.snippet.resourceId.videoId}`,
                   details: item.snippet,
                 });

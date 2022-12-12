@@ -2,12 +2,33 @@ import React from "react";
 import styles from "./Video.module.css";
 import SwitchButton from "../Helper/SwitchButton";
 
-const Video = ({ video }) => {
+const Video = ({ video, playlistId }) => {
   const [check, setCheck] = React.useState(false);
-  const [videos, setVideos] = React.useState([]);
+  const [videos, setVideos] = React.useState({
+    playlistId: playlistId,
+    id: [],
+  });
 
-  const handleClick = () => {
+  React.useEffect(() => {
+    const watched = localStorage.getItem("watched");
+    if (watched) {
+      const obj = JSON.parse(watched);
+      const checked = obj.id.includes(video.id);
+      setCheck(checked);
+    }
+  }, [video]);
+
+  const handleVideoCheck = () => {
     setCheck(!check);
+    if (!check) {
+      videos.id.push(video.id);
+      setVideos(videos);
+      localStorage.setItem("watched", JSON.stringify(videos));
+    } else {
+      videos.id.pop();
+      setVideos(videos);
+      localStorage.setItem("watched", JSON.stringify(videos));
+    }
   };
 
   if (!video) return null;
@@ -21,11 +42,13 @@ const Video = ({ video }) => {
         frameBorder="0"
         allow="autoplay"
       ></iframe>
-      {/* <SwitchButton
+      <SwitchButton
         label="Marcar como já visto:"
-        onChange={handleClick}
+        onChange={() => {
+          handleVideoCheck();
+        }}
         checked={check}
-      /> */}
+      />
     </>
   );
 };
