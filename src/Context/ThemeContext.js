@@ -13,7 +13,7 @@ export const ThemeStorage = ({ children }) => {
   React.useEffect(() => {
     const localTheme = localStorage.getItem("theme");
     if (localTheme) setTheme(localTheme);
-  }, {});
+  }, []);
 
   const handleThemeChange = () => {
     const isCurrentDark = theme === "dark";

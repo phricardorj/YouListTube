@@ -24,18 +24,17 @@ function Playlist() {
         const json = await response.json();
         setData(json);
         setVideo({
-          index: 0,
+          id: json.items[0].snippet.resourceId.videoId,
           src: `https://www.youtube.com/embed/${json.items[0].snippet.resourceId.videoId}`,
           details: json.items[0].snippet,
         });
-        console.log(json);
       }
       setLoading(false);
     };
     getPlaylistData(
       `${baseUrl}&maxResults=${maxResults}&playlistId=${playlistId}`
     );
-  }, []);
+  }, [baseUrl, playlistId]);
 
   return (
     <>
