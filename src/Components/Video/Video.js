@@ -21,11 +21,11 @@ const Video = ({ video }) => {
         frameBorder="0"
         allow="autoplay"
       ></iframe>
-      <SwitchButton
+      {/* <SwitchButton
         label="Marcar como já visto:"
-        onClick={handleClick}
+        onChange={handleClick}
         checked={check}
-      />
+      /> */}
     </>
   );
 };
