@@ -12,12 +12,9 @@ const Video = ({ video, playlistId }) => {
   React.useEffect(() => {
     const watched = localStorage.getItem("watched");
     if (watched) setVideos(JSON.parse(watched));
-  }, []);
-
-  React.useEffect(() => {
     const checked = videos.id.includes(video.id);
     setCheck(checked);
-  }, [video]);
+  }, [video.id, videos]);
 
   const handleVideoCheck = () => {
     setCheck(!check);
@@ -26,7 +23,7 @@ const Video = ({ video, playlistId }) => {
       setVideos(videos);
       localStorage.setItem("watched", JSON.stringify(videos));
     } else {
-      videos.id = videos.id.filter((el) => el != video.id);
+      videos.id = videos.id.filter((el) => el !== video.id);
       setVideos(videos);
       localStorage.setItem("watched", JSON.stringify(videos));
     }
