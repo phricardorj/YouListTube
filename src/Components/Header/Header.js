@@ -28,8 +28,8 @@ const Header = () => {
       </p>
 
       <SwitchButton
-        label={theme === "light" ? "☀️" : "🌙"}
-        checked={theme === "light"}
+        label={"Tema Escuro 🌙"}
+        checked={theme !== "light"}
         onChange={handleThemeChange}
       />
     </div>
