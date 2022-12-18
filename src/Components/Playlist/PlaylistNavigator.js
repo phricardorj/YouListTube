@@ -43,16 +43,7 @@ function PlaylistNavigator({
       {!loading && (
         <ul className={styles.ul}>
           {data.items.map((item, index) => (
-            <li
-              key={item.id}
-              onClick={() => {
-                setVideo({
-                  id: item.snippet.resourceId.videoId,
-                  src: `https://www.youtube.com/embed/${item.snippet.resourceId.videoId}`,
-                  details: item.snippet,
-                });
-              }}
-            >
+            <li key={item.id} onClick={() => setVideo(item)}>
               {item.snippet.title}
             </li>
           ))}

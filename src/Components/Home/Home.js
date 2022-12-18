@@ -14,7 +14,7 @@ const Home = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (value == "") {
+    if (value === "") {
       setError("⚠️ Informe o código da playlist!");
       input.current.focus();
       return null;

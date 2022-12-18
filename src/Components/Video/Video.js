@@ -11,10 +11,13 @@ const Video = ({ video, playlistId }) => {
 
   React.useEffect(() => {
     const watched = localStorage.getItem("watched");
-    if (watched) setVideos(JSON.parse(watched));
-    const checked = videos.id.includes(video.id);
-    setCheck(checked);
-  }, [video.id, videos]);
+    if (watched) {
+      const json = JSON.parse(watched);
+      const checked = json.id.includes(video.id);
+      if (video) setCheck(checked);
+      setVideos(json);
+    }
+  }, [video]);
 
   const handleVideoCheck = () => {
     setCheck(!check);
@@ -32,17 +35,17 @@ const Video = ({ video, playlistId }) => {
   if (!video) return null;
   return (
     <>
-      <h1 className={styles.title}>{video.details.title}</h1>
+      <h1 className={styles.title}>{video.snippet.title}</h1>
       <iframe
+        src={`https://www.youtube.com/embed/${video.snippet.resourceId.videoId}?autoplay=1`}
+        title={video.snippet.title}
         className={styles.video}
-        src={`${video.src}?autoplay=1&controls=1&rel=0`}
-        title={video.details.title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
       <SwitchButton
         label="Marcar como já visto:"
-        onChange={() => handleVideoCheck()}
+        onChange={handleVideoCheck}
         checked={check}
       />
     </>

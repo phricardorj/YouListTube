@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
-      {pathname != "/" && (
+      {pathname !== "/" && (
         <Link to="/" className="btn-default">
           Página Inicial
         </Link>
@@ -21,7 +21,7 @@ const Header = () => {
         <a
           href="https://github.com/phricardorj/YouListTube"
           target="_blank"
-          rel="noopener"
+          rel="noopener noreferrer"
         >
           repositório
         </a>

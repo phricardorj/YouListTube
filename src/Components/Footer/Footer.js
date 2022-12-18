@@ -5,7 +5,7 @@ import logo from "../../Assets/youlisttube.png";
 const Footer = () => {
   return (
     <div className={styles.footer}>
-      <img className={styles.logo} src={logo}></img>
+      <img className={styles.logo} src={logo} alt="YouTubeList Logo"></img>
       <p className={styles.text}>Feito com ❤️ em React</p>
     </div>
   );

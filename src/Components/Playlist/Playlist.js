@@ -23,11 +23,7 @@ function Playlist() {
       if (response.ok) {
         const json = await response.json();
         setData(json);
-        setVideo({
-          id: json.items[0].snippet.resourceId.videoId,
-          src: `https://www.youtube.com/embed/${json.items[0].snippet.resourceId.videoId}`,
-          details: json.items[0].snippet,
-        });
+        setVideo(json.items[0]);
       }
       setLoading(false);
     };
