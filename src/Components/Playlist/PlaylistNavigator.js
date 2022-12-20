@@ -11,7 +11,7 @@ function PlaylistNavigator({
   playlistId,
   baseUrl,
   maxResults,
-  playerNow,
+  playingNow,
 }) {
   const [loading, setLoading] = React.useState(false);
 
@@ -33,6 +33,18 @@ function PlaylistNavigator({
     await getDataByPage(data.nextPageToken);
   };
 
+  const isPlayingNow = (videoId) => {
+    return playingNow && playingNow === videoId ? styles.playingNow : undefined;
+  };
+
+  const isAlreadyWatched = (videoId) => {
+    const storage = localStorage.getItem("watched")
+      ? JSON.parse(localStorage.getItem("watched"))
+      : null;
+    if (storage && storage.id.includes(videoId)) return styles.saved;
+    return undefined;
+  };
+
   const prevPage = async () => {
     setPage(page - 1);
     await getDataByPage(data.prevPageToken);
@@ -46,16 +58,18 @@ function PlaylistNavigator({
           {data.items.map((item, index) => (
             <li
               key={item.id}
-              className={
-                playerNow &&
-                playerNow === item.snippet.resourceId.videoId &&
-                styles.playerNow
-              }
+              className={`${isPlayingNow(
+                item.snippet.resourceId.videoId
+              )} ${isAlreadyWatched(item.snippet.resourceId.videoId)}`}
               onClick={() => setVideo(item)}
             >
-              {playerNow && playerNow === item.snippet.resourceId.videoId
-                ? `${item.snippet.title} 🎶`
-                : item.snippet.title}
+              <img
+                src={item.snippet.thumbnails.medium.url}
+                alt={item.snippet.title}
+                className={styles.thumbnail}
+              />
+              {isAlreadyWatched(item.snippet.resourceId.videoId) && `✅ `}
+              {item.snippet.title}
             </li>
           ))}
         </ul>

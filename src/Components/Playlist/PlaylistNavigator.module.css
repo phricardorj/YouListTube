@@ -13,6 +13,11 @@
  }
  
  .ul > li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+
      cursor: pointer;
      background: transparent;
      color: #ffffff;
@@ -21,16 +26,15 @@
      border-radius: 0.4rem;
      transition: 0.1s;
      border: 1px solid transparent;
-     border-left: 3px solid var(--theme-color-primary);
+     border-left: 3px solid var(--color-06);
      padding: 0.5rem;
-     padding-left: 1rem;
- }
-
- .ul > li:hover {
-    background: transparent;
-    color: var(--theme-color-primary);
+     padding-left: 0.5rem;
  }
  
+ .ul > li:hover {
+    background: var(--color-07);
+ }
+
  .btnGroup {
      display: inline-flex;
      align-items: center;
@@ -59,7 +63,16 @@ button:disabled {
     text-align: center;
 }
 
-.playerNow {
-    background:  var(--theme-color-primary) !important;
+.playingNow {
+    background: var(--color-06) !important;
     color: white !important;
+}
+
+.saved {
+    border-left-color:  #b1e458 !important;
+}
+
+.thumbnail {
+    border-radius: 0.8rem;
+    height: 50px;
 }

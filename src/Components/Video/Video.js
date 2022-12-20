@@ -13,7 +13,7 @@ const Video = ({ video, playlistId }) => {
     const watched = localStorage.getItem("watched");
     if (watched) {
       const json = JSON.parse(watched);
-      const checked = json.id.includes(video.id);
+      const checked = json.id.includes(video.snippet.resourceId.videoId);
       if (video) setCheck(checked);
       setVideos(json);
     }
@@ -22,11 +22,13 @@ const Video = ({ video, playlistId }) => {
   const handleVideoCheck = () => {
     setCheck(!check);
     if (!check) {
-      videos.id.push(video.id);
+      videos.id.push(video.snippet.resourceId.videoId);
       setVideos(videos);
       localStorage.setItem("watched", JSON.stringify(videos));
     } else {
-      videos.id = videos.id.filter((el) => el !== video.id);
+      videos.id = videos.id.filter(
+        (el) => el !== video.snippet.resourceId.videoId
+      );
       setVideos(videos);
       localStorage.setItem("watched", JSON.stringify(videos));
     }

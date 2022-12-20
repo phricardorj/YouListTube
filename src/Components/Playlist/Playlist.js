@@ -12,11 +12,10 @@ function Playlist() {
   const [data, setData] = React.useState(null);
   const [page, setPage] = React.useState(1);
   const [video, setVideo] = React.useState(null);
+  const [playingNow, setPlayingNow] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
   const baseUrl = `https://www.googleapis.com/youtube/v3/playlistItems?key=${process.env.REACT_APP_API_KEY}&part=snippet`;
   const maxResults = 10;
-
-  const [playerNow, setPlayerNow] = React.useState(null);
 
   React.useEffect(() => {
     const getPlaylistData = async (url) => {
@@ -35,7 +34,7 @@ function Playlist() {
   }, [baseUrl, playlistId]);
 
   React.useEffect(() => {
-    if (video) setPlayerNow(video.snippet.resourceId.videoId);
+    if (video) setPlayingNow(video.snippet.resourceId.videoId);
   }, [video]);
 
   return (
@@ -58,7 +57,7 @@ function Playlist() {
                 setPage={setPage}
                 setVideo={setVideo}
                 setData={setData}
-                playerNow={playerNow}
+                playingNow={playingNow}
               />
             </div>
           </>
