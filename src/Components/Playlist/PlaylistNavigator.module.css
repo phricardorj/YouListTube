@@ -14,20 +14,21 @@
  
  .ul > li {
      cursor: pointer;
-     background: var(--theme-primary);
-     color: var(--theme-text-color);
+     background: transparent;
+     color: #ffffff;
      box-shadow: 0 0 0 1px #121212;
      margin: 0.5rem;
      border-radius: 0.4rem;
-     padding: 0.5rem;
      transition: 0.1s;
      border: 1px solid transparent;
+     border-left: 3px solid var(--theme-color-primary);
+     padding: 0.5rem;
+     padding-left: 1rem;
  }
 
  .ul > li:hover {
     background: transparent;
-    color: white;
-    border-color: white;
+    color: var(--theme-color-primary);
  }
  
  .btnGroup {
@@ -56,4 +57,9 @@ button:disabled {
 .page {
     color: #acacac;
     text-align: center;
+}
+
+.playerNow {
+    background:  var(--theme-color-primary) !important;
+    color: white !important;
 }

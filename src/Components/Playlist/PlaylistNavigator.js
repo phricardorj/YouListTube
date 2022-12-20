@@ -11,6 +11,7 @@ function PlaylistNavigator({
   playlistId,
   baseUrl,
   maxResults,
+  playerNow,
 }) {
   const [loading, setLoading] = React.useState(false);
 
@@ -43,8 +44,18 @@ function PlaylistNavigator({
       {!loading && (
         <ul className={styles.ul}>
           {data.items.map((item, index) => (
-            <li key={item.id} onClick={() => setVideo(item)}>
-              {item.snippet.title}
+            <li
+              key={item.id}
+              className={
+                playerNow &&
+                playerNow === item.snippet.resourceId.videoId &&
+                styles.playerNow
+              }
+              onClick={() => setVideo(item)}
+            >
+              {playerNow && playerNow === item.snippet.resourceId.videoId
+                ? `${item.snippet.title} 🎶`
+                : item.snippet.title}
             </li>
           ))}
         </ul>

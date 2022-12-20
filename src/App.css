@@ -40,6 +40,7 @@ a {
     --theme-primary: #ffae9e;
     --theme-background: #e8e8e8;
     --theme-text-color: #000000;
+    --theme-color-primary: #ff8965;
 }
 
 .theme-dark {
@@ -47,5 +48,6 @@ a {
     --theme-primary: #121212;
     --theme-background: #212121;
     --theme-text-color: #f2f2f2;
+    --theme-color-primary: #ed3838;
 }
 

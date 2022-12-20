@@ -16,6 +16,8 @@ function Playlist() {
   const baseUrl = `https://www.googleapis.com/youtube/v3/playlistItems?key=${process.env.REACT_APP_API_KEY}&part=snippet`;
   const maxResults = 10;
 
+  const [playerNow, setPlayerNow] = React.useState(null);
+
   React.useEffect(() => {
     const getPlaylistData = async (url) => {
       setLoading(true);
@@ -31,6 +33,10 @@ function Playlist() {
       `${baseUrl}&maxResults=${maxResults}&playlistId=${playlistId}`
     );
   }, [baseUrl, playlistId]);
+
+  React.useEffect(() => {
+    if (video) setPlayerNow(video.snippet.resourceId.videoId);
+  }, [video]);
 
   return (
     <>
@@ -52,6 +58,7 @@ function Playlist() {
                 setPage={setPage}
                 setVideo={setVideo}
                 setData={setData}
+                playerNow={playerNow}
               />
             </div>
           </>
