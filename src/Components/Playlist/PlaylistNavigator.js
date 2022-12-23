@@ -68,7 +68,7 @@ function PlaylistNavigator({
                 alt={item.snippet.title}
                 className={styles.thumbnail}
               />
-              {isAlreadyWatched(item.snippet.resourceId.videoId) && `✅ `}
+              {/* {isAlreadyWatched(item.snippet.resourceId.videoId) && `✅ `} */}
               {item.snippet.title}
             </li>
           ))}

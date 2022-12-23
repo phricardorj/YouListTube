@@ -48,6 +48,7 @@ const Video = ({ video, playlistId }) => {
       <SwitchButton
         label="Marcar como já visto:"
         onChange={handleVideoCheck}
+        color="#b1e458"
         checked={check}
       />
     </>
