@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./PlaylistNavigator.module.css";
 import Loading from "../Helper/Loading";
+import { WatchedContext } from "../../Context/WatchedContext";
 
 function PlaylistNavigator({
   data,
@@ -13,6 +14,7 @@ function PlaylistNavigator({
   maxResults,
   playingNow,
 }) {
+  const { watched } = React.useContext(WatchedContext);
   const [loading, setLoading] = React.useState(false);
 
   const getDataByPage = async (pageToken) => {
@@ -38,10 +40,7 @@ function PlaylistNavigator({
   };
 
   const isAlreadyWatched = (videoId) => {
-    const storage = localStorage.getItem("watched")
-      ? JSON.parse(localStorage.getItem("watched"))
-      : null;
-    if (storage && storage.id.includes(videoId)) return styles.saved;
+    if (watched.id && watched.id.includes(videoId)) return styles.saved;
     return undefined;
   };
 

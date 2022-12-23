@@ -1,36 +1,31 @@
 import React from "react";
 import styles from "./Video.module.css";
 import SwitchButton from "../Helper/SwitchButton";
+import { WatchedContext } from "../../Context/WatchedContext";
 
 const Video = ({ video, playlistId }) => {
+  const { watched, setWatched } = React.useContext(WatchedContext);
   const [check, setCheck] = React.useState(false);
-  const [videos, setVideos] = React.useState({
-    playlistId: playlistId,
-    id: [],
-  });
 
   React.useEffect(() => {
-    const watched = localStorage.getItem("watched");
-    if (watched) {
-      const json = JSON.parse(watched);
-      const checked = json.id.includes(video.snippet.resourceId.videoId);
-      if (video) setCheck(checked);
-      setVideos(json);
+    if (watched && video) {
+      const checked = watched.id.includes(video.snippet.resourceId.videoId);
+      setCheck(checked);
     }
   }, [video]);
 
   const handleVideoCheck = () => {
     setCheck(!check);
     if (!check) {
-      videos.id.push(video.snippet.resourceId.videoId);
-      setVideos(videos);
-      localStorage.setItem("watched", JSON.stringify(videos));
+      const data = { ...watched };
+      data.id.push(video.snippet.resourceId.videoId);
+      setWatched(data);
+      localStorage.setItem("watched", JSON.stringify(data));
     } else {
-      videos.id = videos.id.filter(
-        (el) => el !== video.snippet.resourceId.videoId
-      );
-      setVideos(videos);
-      localStorage.setItem("watched", JSON.stringify(videos));
+      const data = { ...watched };
+      data.id = data.id.filter((el) => el !== video.snippet.resourceId.videoId);
+      setWatched(data);
+      localStorage.setItem("watched", JSON.stringify(data));
     }
   };
 
@@ -46,7 +41,7 @@ const Video = ({ video, playlistId }) => {
         allowFullScreen
       ></iframe>
       <SwitchButton
-        label="Marcar como já visto:"
+        label="Marcar como assistido:"
         onChange={handleVideoCheck}
         color="#b1e458"
         checked={check}
