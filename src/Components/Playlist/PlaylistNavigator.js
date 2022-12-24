@@ -32,7 +32,12 @@ function PlaylistNavigator({
 
   const nextPage = async () => {
     setPage(page + 1);
-    await getDataByPage(data.nextPageToken);
+    if (data.nextPageToken) await getDataByPage(data.nextPageToken);
+  };
+
+  const prevPage = async () => {
+    setPage(page - 1);
+    if (data.prevPageToken) await getDataByPage(data.prevPageToken);
   };
 
   const isPlayingNow = (videoId) => {
@@ -42,11 +47,6 @@ function PlaylistNavigator({
   const isAlreadyWatched = (videoId) => {
     if (watched.id && watched.id.includes(videoId)) return styles.saved;
     return undefined;
-  };
-
-  const prevPage = async () => {
-    setPage(page - 1);
-    await getDataByPage(data.prevPageToken);
   };
 
   return (
@@ -62,12 +62,11 @@ function PlaylistNavigator({
               )} ${isAlreadyWatched(item.snippet.resourceId.videoId)}`}
               onClick={() => setVideo(item)}
             >
-              <img
+              {/* <img
                 src={item.snippet.thumbnails.medium.url}
                 alt={item.snippet.title}
                 className={styles.thumbnail}
-              />
-              {/* {isAlreadyWatched(item.snippet.resourceId.videoId) && `✅ `} */}
+              /> */}
               {item.snippet.title}
             </li>
           ))}
