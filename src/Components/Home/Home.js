@@ -14,12 +14,13 @@ const Home = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (value === "") {
-      setError("⚠️ Informe o código da playlist!");
+    if (value === "" || value.length <= 10) {
+      setError("⚠️ Informe um código da playlist válido!");
       input.current.focus();
       return null;
     }
-    navigate(`/playlist/${value}`);
+    const playlistId = value.trim().replace(/\s/g, "");
+    navigate(`/playlist/${playlistId}`);
   };
 
   return (
