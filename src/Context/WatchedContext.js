@@ -3,6 +3,7 @@ import React from "react";
 export const WatchedContext = React.createContext();
 
 export const WatchedStorage = ({ children }) => {
+  const [numResults, setNumResults] = React.useState(null);
   const [watched, setWatched] = React.useState({
     playlistId: "",
     id: [],
@@ -16,7 +17,7 @@ export const WatchedStorage = ({ children }) => {
   }, []);
 
   return (
-    <WatchedContext.Provider value={{ watched, setWatched }}>
+    <WatchedContext.Provider value={{ watched, setWatched, setNumResults }}>
       {children}
     </WatchedContext.Provider>
   );

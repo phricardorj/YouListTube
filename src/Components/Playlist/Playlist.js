@@ -6,6 +6,7 @@ import styles from "./Playlist.module.css";
 import PlaylistNotFound from "./PlaylistNotFound";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
+import { WatchedContext } from "../../Context/WatchedContext";
 
 function Playlist() {
   const { playlistId } = useParams();
@@ -14,6 +15,7 @@ function Playlist() {
   const [video, setVideo] = React.useState(null);
   const [playingNow, setPlayingNow] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
+  const { setNumResults } = React.useContext(WatchedContext);
   const baseUrl = `https://www.googleapis.com/youtube/v3/playlistItems?key=${process.env.REACT_APP_API_KEY}&part=snippet`;
   const maxResults = 10;
 
@@ -25,6 +27,7 @@ function Playlist() {
         const json = await response.json();
         setData(json);
         setVideo(json.items[0]);
+        setNumResults(json.pageInfo.totalResults);
       }
       setLoading(false);
     };

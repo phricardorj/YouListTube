@@ -62,11 +62,15 @@ function PlaylistNavigator({
               )} ${isAlreadyWatched(item.snippet.resourceId.videoId)}`}
               onClick={() => setVideo(item)}
             >
-              {/* <img
-                src={item.snippet.thumbnails.medium.url}
+              <img
+                src={
+                  Object.keys(item.snippet.thumbnails).length > 0
+                    ? item.snippet.thumbnails.medium.url
+                    : `https://via.placeholder.com/320x180.png?text=${item.snippet.title}`
+                }
                 alt={item.snippet.title}
                 className={styles.thumbnail}
-              /> */}
+              />
               {item.snippet.title}
             </li>
           ))}
