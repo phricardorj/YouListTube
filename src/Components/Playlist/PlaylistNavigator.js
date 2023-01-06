@@ -45,7 +45,8 @@ function PlaylistNavigator({
   };
 
   const isAlreadyWatched = (videoId) => {
-    if (watched.id && watched.id.includes(videoId)) return styles.saved;
+    if (watched[playlistId] && watched[playlistId].includes(videoId))
+      return styles.saved;
     return undefined;
   };
 

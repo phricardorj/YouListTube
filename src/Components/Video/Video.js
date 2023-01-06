@@ -8,8 +8,14 @@ const Video = ({ video, playlistId }) => {
   const [check, setCheck] = React.useState(false);
 
   React.useEffect(() => {
-    if (watched && video) {
-      const checked = watched.id.includes(video.snippet.resourceId.videoId);
+    if (!watched[playlistId]) setWatched({ ...watched, [playlistId]: [] });
+  }, []);
+
+  React.useEffect(() => {
+    if (watched[playlistId] && video) {
+      const checked = watched[playlistId].includes(
+        video.snippet.resourceId.videoId
+      );
       setCheck(checked);
     }
   }, [video]);
@@ -17,15 +23,24 @@ const Video = ({ video, playlistId }) => {
   const handleVideoCheck = () => {
     setCheck(!check);
     if (!check) {
-      const data = { ...watched };
-      data.id.push(video.snippet.resourceId.videoId);
-      setWatched(data);
-      localStorage.setItem("watched", JSON.stringify(data));
+      const newWatched = {
+        ...watched,
+        [playlistId]: [
+          ...watched[playlistId],
+          video.snippet.resourceId.videoId,
+        ],
+      };
+      setWatched(newWatched);
+      localStorage.setItem("playlists", JSON.stringify(newWatched));
     } else {
-      const data = { ...watched };
-      data.id = data.id.filter((el) => el !== video.snippet.resourceId.videoId);
-      setWatched(data);
-      localStorage.setItem("watched", JSON.stringify(data));
+      const newWatched = {
+        ...watched,
+        [playlistId]: watched[playlistId].filter(
+          (str) => str !== video.snippet.resourceId.videoId
+        ),
+      };
+      setWatched(newWatched);
+      localStorage.setItem("playlists", JSON.stringify(newWatched));
     }
   };
 

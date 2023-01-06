@@ -4,14 +4,11 @@ export const WatchedContext = React.createContext();
 
 export const WatchedStorage = ({ children }) => {
   const [numResults, setNumResults] = React.useState(null);
-  const [watched, setWatched] = React.useState({
-    playlistId: "",
-    id: [],
-  });
+  const [watched, setWatched] = React.useState({});
 
   React.useEffect(() => {
-    const storage = localStorage.getItem("watched")
-      ? JSON.parse(localStorage.getItem("watched"))
+    const storage = localStorage.getItem("playlists")
+      ? JSON.parse(localStorage.getItem("playlists"))
       : null;
     if (storage) setWatched(storage);
   }, []);
