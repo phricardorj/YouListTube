@@ -2,7 +2,6 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
-    padding: 1rem;
     background: var(--color-03);
 }
 
@@ -12,12 +11,13 @@
   max-width: 1600px;
   gap: 1rem;
   color: white;
-  margin-bottom: 2rem;
+  margin: 1rem 0;
 }
 
 .video {
   height: 100%;
   width: 70%;
+  padding: 1rem;
 }
 
 .navigator {
@@ -81,8 +81,12 @@
   .container  {
     flex-direction: column;
   }
+  .video {
+    margin-bottom: 1rem;
+  }
   .video, .navigator {
     width: 100%;
+    padding: 0.3rem;
   }
 }
 

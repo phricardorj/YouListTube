@@ -10,28 +10,19 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
-      {pathname !== "/" && (
-        <Link to="/" className="btn-default">
-          Página Inicial
-        </Link>
-      )}
+      <div className={styles.container}>
+        {pathname !== "/" && (
+          <Link to="/" className="btn-default">
+            Página Inicial
+          </Link>
+        )}
 
-      <p>
-        Gostou? Deixe uma ⭐ no{" "}
-        <a
-          href="https://github.com/phricardorj/YouListTube"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          repositório
-        </a>
-      </p>
-
-      <SwitchButton
-        label={"Tema Escuro 🌙"}
-        checked={theme !== "light"}
-        onChange={handleThemeChange}
-      />
+        <SwitchButton
+          label={theme !== "light" ? "Tema Escuro (ON)" : "Tema Escuro (OFF)"}
+          checked={theme !== "light"}
+          onChange={handleThemeChange}
+        />
+      </div>
     </div>
   );
 };
