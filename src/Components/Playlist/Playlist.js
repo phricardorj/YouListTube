@@ -7,6 +7,7 @@ import PlaylistNotFound from "./PlaylistNotFound";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import { WatchedContext } from "../../Context/WatchedContext";
+import ProgessBar from "../Helper/ProgessBar";
 
 function Playlist() {
   const { playlistId } = useParams();
@@ -15,7 +16,8 @@ function Playlist() {
   const [video, setVideo] = React.useState(null);
   const [playingNow, setPlayingNow] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
-  const { setNumResults } = React.useContext(WatchedContext);
+  const { setTotalVideos, watched, setTotalStorage, porcentagem } =
+    React.useContext(WatchedContext);
   const baseUrl = `https://www.googleapis.com/youtube/v3/playlistItems?key=${process.env.REACT_APP_API_KEY}&part=snippet`;
   const maxResults = 10;
 
@@ -27,7 +29,7 @@ function Playlist() {
         const json = await response.json();
         setData(json);
         setVideo(json.items[0]);
-        setNumResults(json.pageInfo.totalResults);
+        setTotalVideos(json.pageInfo.totalResults);
       }
       setLoading(false);
     };
@@ -40,6 +42,10 @@ function Playlist() {
     if (video) setPlayingNow(video.snippet.resourceId.videoId);
   }, [video]);
 
+  React.useEffect(() => {
+    if (watched[playlistId]) setTotalStorage(watched[playlistId].length);
+  }, [watched]);
+
   return (
     <>
       <Header />
@@ -47,6 +53,7 @@ function Playlist() {
         {loading && <div className={styles.skeleton}></div>}
         {data && !loading && (
           <>
+            {porcentagem >= 0 && <ProgessBar porcentagem={porcentagem} />}
             <div className={styles.container}>
               <Video video={video} playlistId={playlistId} />
             </div>
