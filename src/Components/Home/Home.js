@@ -30,7 +30,7 @@ const Home = () => {
         <div className={styles.container}>
           <div className={styles.header}>
             <img src={logo} alt="Logo YouListTube" />
-            <p>Playlist Youtube Player by @phricardorj</p>
+            <p>Playlist Youtube Player</p>
           </div>
           <form onSubmit={handleSubmit} className={styles.form}>
             <label htmlFor="playlist">Digite o código da playlist:</label>

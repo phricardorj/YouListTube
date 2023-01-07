@@ -6,7 +6,12 @@ const Footer = () => {
   return (
     <div className={styles.footer}>
       <img className={styles.logo} src={logo} alt="YouTubeList Logo"></img>
-      <p className={styles.text}>Feito com ❤️ em React</p>
+      <p className={styles.text}>
+        Feito com ❤️ por{" "}
+        <a href="https://links.phricardo.com.br/" target="_blank" noreferrer>
+          @phricardorj
+        </a>
+      </p>
     </div>
   );
 };
