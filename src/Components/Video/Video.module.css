@@ -1,14 +1,22 @@
+.container {
+    border-radius: 0.4rem;
+    padding: 1rem;
+    color: var(--color-04);
+}
+
 .video {
     border-radius: 1rem;
-    margin: 1.2rem 0 0.5rem;
+    margin: 1.8rem 0;
     aspect-ratio: 16 / 9;
     width: 100%;
     border: none;
+    /* box-shadow: 0px 0px 80px;
+    color: var(--color-05); */
 }
 
 .title {
+    margin-top: 1rem;
     font-size: 1.3rem;
     text-align: center;
-    color: #f2f2f2;
 }
 

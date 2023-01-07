@@ -53,22 +53,24 @@ function Playlist() {
         {loading && <div className={styles.skeleton}></div>}
         {data && !loading && (
           <>
-            {porcentagem >= 0 && <ProgessBar porcentagem={porcentagem} />}
             <div className={styles.container}>
-              <Video video={video} playlistId={playlistId} />
-            </div>
-            <div className={styles.container}>
-              <PlaylistNavigator
-                data={data}
-                page={page}
-                playlistId={playlistId}
-                baseUrl={baseUrl}
-                maxResults={maxResults}
-                setPage={setPage}
-                setVideo={setVideo}
-                setData={setData}
-                playingNow={playingNow}
-              />
+              <div className={styles.video}>
+                <Video video={video} playlistId={playlistId} />
+              </div>
+              <div className={styles.navigator}>
+                {porcentagem >= 0 && <ProgessBar porcentagem={porcentagem} />}
+                <PlaylistNavigator
+                  data={data}
+                  page={page}
+                  playlistId={playlistId}
+                  baseUrl={baseUrl}
+                  maxResults={maxResults}
+                  setPage={setPage}
+                  setVideo={setVideo}
+                  setData={setData}
+                  playingNow={playingNow}
+                />
+              </div>
             </div>
           </>
         )}

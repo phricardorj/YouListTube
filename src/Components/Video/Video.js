@@ -46,12 +46,13 @@ const Video = ({ video, playlistId }) => {
 
   if (!video) return null;
   return (
-    <>
+    <div className={styles.container}>
       <h1 className={styles.title}>{video.snippet.title}</h1>
       <iframe
         src={`https://www.youtube.com/embed/${video.snippet.resourceId.videoId}?autoplay=1`}
         title={video.snippet.title}
         className={styles.video}
+        // style={check ? { color: "#b1e458" } : undefined}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
@@ -61,7 +62,7 @@ const Video = ({ video, playlistId }) => {
         color="#b1e458"
         checked={check}
       />
-    </>
+    </div>
   );
 };
 
