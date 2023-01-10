@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Video.module.css";
+import YouTube from "@u-wave/react-youtube";
 import SwitchButton from "../Helper/SwitchButton";
 import { WatchedContext } from "../../Context/WatchedContext";
 
@@ -48,14 +49,12 @@ const Video = ({ video, playlistId }) => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>{video.snippet.title}</h1>
-      <iframe
-        src={`https://www.youtube.com/embed/${video.snippet.resourceId.videoId}?autoplay=1`}
-        title={video.snippet.title}
+      <YouTube
+        video={video.snippet.resourceId.videoId}
+        autoplay
         className={styles.video}
-        // style={check ? { color: "#b1e458" } : undefined}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
+        onEnd={() => alert("Em breve, reprodução automática! :)")}
+      />
       <SwitchButton
         label="Marcar como assistido:"
         onChange={handleVideoCheck}

@@ -21,7 +21,7 @@ export const WatchedStorage = ({ children }) => {
     if (totalVideos === 0) setPorcentagem(0);
     if (totalVideos > 0 && totalStorage >= 0) {
       const porcentagem = (totalStorage * 100) / totalVideos;
-      console.log(porcentagem);
+      // console.log(porcentagem);
       setPorcentagem(Math.ceil(porcentagem));
     }
   }, [totalVideos, totalStorage]);
